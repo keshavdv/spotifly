@@ -1,0 +1,354 @@
+[
+    {
+        "name": "Goodbye",
+        "fields": [
+            {
+                "id": 1,
+                "type": "string",
+                "name": "reason",
+                "enumMap": null
+            }
+        ]
+    },
+    {
+        "name": "TrackRef",
+        "fields": [
+            {
+                "id": 1,
+                "type": "bytes",
+                "name": "gid",
+                "enumMap": null
+            },
+            {
+                "id": 2,
+                "type": "string",
+                "name": "uri",
+                "enumMap": null
+            },
+            {
+                "id": 3,
+                "type": "bool",
+                "name": "queued",
+                "enumMap": null
+            },
+            {
+                "id": 4,
+                "type": "string",
+                "name": "context",
+                "enumMap": null
+            }
+        ]
+    },
+    {
+        "name": "State",
+        "fields": [
+            {
+                "id": 2,
+                "type": "string",
+                "name": "context_uri",
+                "enumMap": null
+            },
+            {
+                "id": 3,
+                "type": "uint32",
+                "name": "index",
+                "enumMap": null
+            },
+            {
+                "id": 4,
+                "type": "uint32",
+                "name": "position_ms",
+                "enumMap": null
+            },
+            {
+                "id": 5,
+                "type": "#",
+                "name": "status",
+                "typeName": "PlayStatus",
+                "enumMap": {
+                    "name": "PlayStatus",
+                    "toName": {
+                        "0": "kPlayStatusStop",
+                        "1": "kPlayStatusPlay",
+                        "2": "kPlayStatusPause",
+                        "3": "kPlayStatusLoading"
+                    },
+                    "toNumber": {
+                        "kPlayStatusStop": 0,
+                        "kPlayStatusPlay": 1,
+                        "kPlayStatusPause": 2,
+                        "kPlayStatusLoading": 3
+                    }
+                }
+            },
+            {
+                "id": 7,
+                "type": "uint64",
+                "name": "position_measured_at",
+                "enumMap": null
+            },
+            {
+                "id": 13,
+                "type": "bool",
+                "name": "shuffle",
+                "enumMap": null
+            },
+            {
+                "id": 14,
+                "type": "bool",
+                "name": "repeat",
+                "enumMap": null
+            },
+            {
+                "id": 20,
+                "type": "string",
+                "name": "last_command_ident",
+                "enumMap": null
+            },
+            {
+                "id": 21,
+                "type": "uint32",
+                "name": "last_command_msgid",
+                "enumMap": null
+            },
+            {
+                "id": 24,
+                "type": "bool",
+                "name": "playing_from_fallback",
+                "enumMap": null
+            },
+            {
+                "id": 25,
+                "type": "uint32",
+                "name": "row",
+                "enumMap": null
+            },
+            {
+                "id": 26,
+                "type": "uint32",
+                "name": "playing_track_index",
+                "enumMap": null
+            },
+            {
+                "id": 27,
+                "type": "*TrackRef",
+                "name": "track",
+                "typeName": "TrackRef",
+                "enumMap": null
+            }
+        ]
+    },
+    {
+        "name": "Capability",
+        "fields": [
+            {
+                "id": 1,
+                "type": "#",
+                "name": "type",
+                "typeName": "CapabilityType",
+                "enumMap": {
+                    "name": "CapabilityType",
+                    "toName": {
+                        "1": "kSupportedContexts",
+                        "2": "kCanBePlayer",
+                        "3": "kRestrictToLocal",
+                        "4": "kDeviceType"
+                    },
+                    "toNumber": {
+                        "kSupportedContexts": 1,
+                        "kCanBePlayer": 2,
+                        "kRestrictToLocal": 3,
+                        "kDeviceType": 4
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "type": "*int64",
+                "name": "intValue",
+                "enumMap": null
+            },
+            {
+                "id": 3,
+                "type": "*string",
+                "name": "stringValue",
+                "enumMap": null
+            }
+        ]
+    },
+    {
+        "name": "DeviceState",
+        "fields": [
+            {
+                "id": 10,
+                "type": "bool",
+                "name": "is_active",
+                "enumMap": null
+            },
+            {
+                "id": 11,
+                "type": "bool",
+                "name": "can_play",
+                "enumMap": null
+            },
+            {
+                "id": 12,
+                "type": "uint32",
+                "name": "volume",
+                "enumMap": null
+            },
+            {
+                "id": 13,
+                "type": "string",
+                "name": "name",
+                "enumMap": null
+            },
+            {
+                "id": 14,
+                "type": "uint32",
+                "name": "error_code",
+                "enumMap": null
+            },
+            {
+                "id": 15,
+                "type": "int64",
+                "name": "became_active_at",
+                "enumMap": null
+            },
+            {
+                "id": 16,
+                "type": "string",
+                "name": "error_message",
+                "enumMap": null
+            },
+            {
+                "id": 17,
+                "type": "*Capability",
+                "name": "capabilities",
+                "typeName": "Capability",
+                "enumMap": null
+            }
+        ]
+    },
+    {
+        "name": "Frame",
+        "fields": [
+            {
+                "id": 1,
+                "type": "uint32",
+                "name": "version",
+                "enumMap": null
+            },
+            {
+                "id": 2,
+                "type": "string",
+                "name": "ident",
+                "enumMap": null
+            },
+            {
+                "id": 3,
+                "type": "string",
+                "name": "protocol_version",
+                "enumMap": null
+            },
+            {
+                "id": 4,
+                "type": "uint32",
+                "name": "seq_nr",
+                "enumMap": null
+            },
+            {
+                "id": 5,
+                "type": "#",
+                "name": "type",
+                "typeName": "MessageType",
+                "enumMap": {
+                    "name": "MessageType",
+                    "toName": {
+                        "1": "kMessageTypeHello",
+                        "2": "kMessageTypeGoodbye",
+                        "3": "kMessageTypeProbe",
+                        "10": "kMessageTypeNotify",
+                        "20": "kMessageTypeLoad",
+                        "21": "kMessageTypePlay",
+                        "22": "kMessageTypePause",
+                        "23": "kMessageTypePlayPause",
+                        "24": "kMessageTypeSeek",
+                        "25": "kMessageTypePrev",
+                        "26": "kMessageTypeNext",
+                        "27": "kMessageTypeVolume",
+                        "28": "kMessageTypeShuffle",
+                        "29": "kMessageTypeRepeat",
+                        "31": "kMessageTypeVolumeDown",
+                        "32": "kMessageTypeVolumeUp",
+                        "33": "kMessageTypeReplace"
+                    },
+                    "toNumber": {
+                        "kMessageTypeHello": 1,
+                        "kMessageTypeGoodbye": 2,
+                        "kMessageTypeProbe": 3,
+                        "kMessageTypeNotify": 10,
+                        "kMessageTypeLoad": 20,
+                        "kMessageTypePlay": 21,
+                        "kMessageTypePause": 22,
+                        "kMessageTypePlayPause": 23,
+                        "kMessageTypeSeek": 24,
+                        "kMessageTypePrev": 25,
+                        "kMessageTypeNext": 26,
+                        "kMessageTypeVolume": 27,
+                        "kMessageTypeShuffle": 28,
+                        "kMessageTypeRepeat": 29,
+                        "kMessageTypeVolumeDown": 31,
+                        "kMessageTypeVolumeUp": 32,
+                        "kMessageTypeReplace": 33
+                    }
+                }
+            },
+            {
+                "id": 7,
+                "type": "DeviceState",
+                "name": "device_state",
+                "typeName": "DeviceState",
+                "enumMap": null
+            },
+            {
+                "id": 11,
+                "type": "Goodbye",
+                "name": "goodbye",
+                "typeName": "Goodbye",
+                "enumMap": null
+            },
+            {
+                "id": 12,
+                "type": "State",
+                "name": "state",
+                "typeName": "State",
+                "enumMap": null
+            },
+            {
+                "id": 13,
+                "type": "uint32",
+                "name": "position",
+                "enumMap": null
+            },
+            {
+                "id": 14,
+                "type": "uint32",
+                "name": "volume",
+                "enumMap": null
+            },
+            {
+                "id": 17,
+                "type": "int64",
+                "name": "state_update_id",
+                "enumMap": null
+            },
+            {
+                "id": 18,
+                "type": "*string",
+                "name": "recipient",
+                "enumMap": null
+            }
+        ]
+    }
+]

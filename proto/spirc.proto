@@ -1,0 +1,101 @@
+package spotify.spirc.proto;
+
+message Goodbye {
+  optional string reason = 1;
+}
+
+message TrackRef {
+  optional bytes gid = 1;
+  optional string uri = 2;
+  optional bool queued = 3;
+  optional string context = 4;
+}
+
+
+enum PlayStatus {
+  kPlayStatusStop = 0;
+  kPlayStatusPlay = 1;
+  kPlayStatusPause = 2;
+  kPlayStatusLoading = 3;
+}
+
+message State {
+  optional string context_uri = 2;
+  optional uint32 index = 3;
+  optional uint32 position_ms = 4;
+  optional PlayStatus status = 5;
+  optional uint64 position_measured_at = 7;
+
+  optional bool shuffle = 13;
+  optional bool repeat = 14;
+
+  optional string last_command_ident = 20;
+  optional uint32 last_command_msgid = 21;
+  optional bool playing_from_fallback = 24;
+  optional uint32 row = 25;
+  optional uint32 playing_track_index = 26;
+  repeated TrackRef track = 27;
+}
+
+enum CapabilityType {
+  kSupportedContexts = 1;
+  kCanBePlayer = 2;
+  kRestrictToLocal = 3;
+  kDeviceType = 4;
+  kIDK1 = 5; 
+  kIDK2 = 6;
+}
+
+message Capability {
+  optional CapabilityType type = 1;
+  repeated int64 intValue = 2;
+  repeated string stringValue = 3;
+}
+
+message DeviceState {
+  optional bool is_active = 10;
+  optional bool can_play = 11;
+  optional uint32 volume = 12;
+  optional string name = 13;
+  optional uint32 error_code = 14;
+  optional int64 became_active_at = 15;
+  optional string error_message = 16;
+  repeated Capability capabilities = 17;
+}
+
+enum MessageType {
+  kMessageTypeHello = 1;
+  kMessageTypeGoodbye = 2;
+  kMessageTypeProbe = 3;
+  kMessageTypeNotify = 10;
+  kMessageTypeLoad = 20;
+  kMessageTypePlay = 21;
+  kMessageTypePause = 22;
+  kMessageTypePlayPause = 23;
+  kMessageTypeSeek = 24;
+  kMessageTypePrev = 25;
+  kMessageTypeNext = 26;
+  kMessageTypeVolume = 27;
+  kMessageTypeShuffle = 28;
+  kMessageTypeRepeat = 29;
+  kMessageTypeVolumeDown = 31;
+  kMessageTypeVolumeUp = 32;
+  kMessageTypeReplace = 33;
+}
+
+message Frame {
+  optional uint32 version = 1;
+  optional string ident = 2;
+  optional string protocol_version = 3;
+  optional uint32 seq_nr = 4;
+
+  optional MessageType type = 5;
+
+  optional DeviceState device_state = 7;
+  optional Goodbye goodbye = 11;
+  optional State state = 12;
+  optional uint32 position = 13;
+  optional uint32 volume = 14;
+  optional int64 state_update_id = 17;
+  repeated string recipient = 18;
+}

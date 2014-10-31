@@ -1,0 +1,44 @@
+{
+  "name": "spotifly",
+  "version": "0.0.1",
+  "description": "Node.js implementation of the Spotify Connect protocol",
+  "main": "index.js",
+  "bin": {
+    "spotifly": "./index.js"
+  },
+  "keywords": [
+    "spotify",
+    "connect",
+    "music"
+  ],
+  "dependencies": {
+    "cheerio": "~0.10.5",
+    "debug": "~0.7.0",
+    "protobufjs": "~2.0.0-rc2",
+    "superagent": "~0.20.0",
+    "ws": "~0.4.25",
+    "readable-stream": "~0.2.0",
+    "lame": "~1.0.1",
+    "speaker": "~0.0.6",
+    "commander": "~2.5.0",
+    "prompt": "~0.2.14"
+  },
+  "optionalDependencies": {
+    "protobuf": "~0.8.6"
+  },
+  "devDependencies": {
+    "xml2js": "~0.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keshavdv/spotifly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keshavdv/spotifly/issues"
+  },
+  "author": "Keshav Varma <keshavdv@gmail.com> (http://www.keshavdv.com)",
+  "license": "MIT"
+}
