@@ -21,7 +21,8 @@
     "lame": "~1.0.1",
     "speaker": "~0.0.6",
     "commander": "~2.5.0",
-    "prompt": "~0.2.14"
+    "prompt": "~0.2.14",
+    "pause-stream": "*"
   },
   "optionalDependencies": {
     "protobuf": "~0.8.6"
